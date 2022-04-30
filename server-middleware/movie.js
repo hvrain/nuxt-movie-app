@@ -3,7 +3,10 @@ const axios = require('axios');
 
 const app = express()
 const { OMDB_API_KEY } = process.env;
+const PORT = process.env.PORT || '3000';
 
+
+app.set("port", PORT)
 app.use(express.json())
 app.post('/', async (req, res) => {
   const payload = req.body;
@@ -30,6 +33,5 @@ app.post('/', async (req, res) => {
   }
 })
 
-app.listen(process.env.PORT || 3000)
 
 module.exports = app
